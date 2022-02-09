@@ -18,6 +18,7 @@ class person{
 }
 class Developer extends person{
     String github_user;
+
     public Developer(int age,String name,String github_user){
         super(age,name);
         this.github_user = github_user;
@@ -30,6 +31,23 @@ class Developer extends person{
         System.out.println("Developer");
     }
 }
+
+// class Manager extends Developer{
+//     //String github_user;
+//     int n;
+
+//     public Manager(int age,String name,String github_user, int n){
+//         super(age,name);
+//         this.github_user = github_user;
+//     }
+//     public void getDetails(){
+//          System.out.println("age: "+age+"name: "+name+ "github_user: "+github_user);
+//     }
+
+//     public void printClass(){
+//         System.out.println("Developer");
+//     }
+// }
 
 class OOPS {
     public static void main (String[] args) {
