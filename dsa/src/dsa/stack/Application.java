@@ -19,10 +19,10 @@ public class Application {
 //		System.out.println("Pop : "+ s.pop());
 //		System.out.println("Peek : " + (s.peek() == -1 ? "Stack is empty" : s.peek()));
 		ExpressionConversion ec = new ExpressionConversion();
-		System.out.println(ec.infixToPostfix("x+y*z/k"));
-		System.out.println(ec.infixToPrefix("x+y*z/k"));
-		System.out.println(ec.postfixToInfix("xyz*k/+"));
-		System.out.println(ec.prefixToInfix("+x/*yzk"));
+		System.out.println(ec.infixToPostfix("K+L-M*N+O^P*W/U/V*T+Q"));
+		System.out.println(ec.infixToPrefix("K+L-M*N+O^P*W/U/V*T+Q"));
+		System.out.println(ec.postfixToInfix("KL+MN*-OP^W*U/V/T*+Q+"));
+		System.out.println(ec.prefixToInfix("++-+KL*MN*//*^OPWUVTQ"));
 	}
 
 }

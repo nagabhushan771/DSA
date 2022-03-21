@@ -15,6 +15,7 @@ public class ExpressionConversion {
 		preceed.put('-', 1);
 		preceed.put('(', 0);
 		preceed.put(')', 0);
+		preceed.put('^', 3);
 	}
 
 
