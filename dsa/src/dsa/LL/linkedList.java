@@ -198,6 +198,38 @@ public class linkedList {
 //	    this.head = revHead;
 	    return revHead;
 	  }
+	
+	Node reverseBetween(Node head, int left, int right) {
+        Node leftNode = head;
+        Node prevLeft = null;
+        if(head == null)
+            return null;
+        while(left > 1){
+            prevLeft = leftNode;
+            leftNode = leftNode.next;
+            left--;
+        }
+        Node rightNode = head;
+        while(right > 1){
+            rightNode = rightNode.next;
+            right--;
+        }
+        Node nextRight = rightNode.next;
+        Node prev = null;
+        Node cur = leftNode;
+        Node temp = null;
+        while(cur != nextRight && cur != null){
+            temp = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = temp;
+        }
+        if(prevLeft != null)
+            prevLeft.next = rightNode;
+        
+        leftNode.next = cur;
+        return head;
+    }
 	void printList() {
 		Node temp = head;
 		while(temp != null) {
