@@ -1,6 +1,6 @@
 package dsa.LL;
 
-public class linkedList {
+public class LinkedListOwn {
 	Node head;
 	
 	void insertLast(int n) {
