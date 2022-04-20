@@ -353,7 +353,7 @@ public class Quiz implements ActionListener {
 				answerLabelD.setForeground(new Color(25, 255, 0));
 				
 				//Reset the countDown timer to 10
-				seconds = 10;
+				seconds = 45;
 				secondsLeft.setText(String.valueOf(seconds));
 				
 				//Enabling the buttons for the next question
