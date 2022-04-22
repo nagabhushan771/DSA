@@ -11,7 +11,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	
 	static final int UNIT_SIZE = 15;//setting the size of the objects to 25x25 pixels 
 	static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT)/UNIT_SIZE;//Calculating the number of units that we can fir into the frame or the window
-	static final int DELAY = 75;//the delay we use in the game to 75 seconds before we updating the frame controls the difficult of game
+	static final int DELAY = 50;//the delay we use in the game to 50 milliseconds before we updating the frame and it controls the difficulty of game
 	final int[] x = new int[GAME_UNITS];//contains the x-coordinates of the body parts of the snake 
 	final int[] y = new int[GAME_UNITS];//contains the y-coordinates of the body parts of the snake
 	int bodyParts = 6;//Initially I Start the game with the snake having the bodyParts number of parts
