@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 public class Node implements Comparator<Node> {
 	
-	int vertex;
-	int weight;
+	private int vertex;
+	private int weight;
 	
 	public int getVertex() {
 		return vertex;

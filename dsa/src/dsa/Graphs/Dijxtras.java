@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Dijxtras {
 
 	public static void main(String[] args) {
-		
+		//Reading graph and the source
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the number of vertices : ");
 		int vert = sc.nextInt();
@@ -26,38 +26,23 @@ public class Dijxtras {
 			adjList.get(vertex1).add(new Node(vertex2, weight));
 			adjList.get(vertex2).add(new Node(vertex1, weight));
 		}
-//		int vert = 5;
-//        ArrayList<ArrayList<Node> > adjList = new ArrayList<ArrayList<Node>>();
-//		
-//		for (int i = 0; i < vert; i++) 
-//			adjList.add(new ArrayList<Node>());
-//			
-//		adjList.get(0).add(new Node(1, 2));
-//		adjList.get(1).add(new Node(0, 2));
-//		
-//		adjList.get(1).add(new Node(2, 4));
-//		adjList.get(2).add(new Node(1, 4));
-//		
-//		adjList.get(0).add(new Node(3, 1));
-//		adjList.get(3).add(new Node(0, 1));
-//		
-//		adjList.get(3).add(new Node(2, 3));
-//		adjList.get(2).add(new Node(3, 3));
-//		
-//		adjList.get(1).add(new Node(4, 5));
-//		adjList.get(4).add(new Node(1, 5));
-//		
-//		adjList.get(2).add(new Node(4, 1));
-//		adjList.get(4).add(new Node(2, 1));
-		int[] dist = new int[vert];
-		System.out.print("Enter the source : ");
-		int source = sc.nextInt();
+		
+		
+		int[][] dist = new int[vert][vert];
+//		System.out.print("Enter the source : ");
+//		int source = sc.nextInt();
+		
+		//fill the distance array with max Integer value except source
 		for(int i = 0; i<vert; i++) {
-			dist[i] = i==source ? 0 : Integer.MAX_VALUE;
+			for(int j = 0; j<vert; j++) {
+				dist[i][j] = i==j ? 0 : Integer.MAX_VALUE;
+			}
 		}
 		
-		dijxtras(adjList, source, dist);
-		System.out.println(Arrays.toString(dist));
+		for(int i = 0; i< vert; i++)
+			dijxtras(adjList, i, dist[i]);
+		for(int i = 0; i<vert; i++)
+			System.out.println(Arrays.toString(dist[i]));
 	}
 
 	private static void dijxtras(ArrayList<ArrayList<Node>> adjList, int source, int[] dist) {

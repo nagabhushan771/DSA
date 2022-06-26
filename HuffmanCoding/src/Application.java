@@ -6,8 +6,9 @@ public class Application {
 
         Huffman huffman = new Huffman();//Object of Huffman class created
 
-        String encodedText = huffman.encode("Nagabhushan N");//call to encode the given text
+        String encodedText = huffman.encode("Minimum cost home coming robot");//call to encode the given text
         System.out.println(encodedText);
+        System.out.println(Math.floor(encodedText.length()/8));
 
         huffman.printCodes();//call to print the characters and corresponding huffman codes
 

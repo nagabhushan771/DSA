@@ -57,19 +57,19 @@ public class Sort {
 		if(left >= right) {
 			return;
 		}
-		if(left+1 == right) {
-			if(arr[right] < arr[left]) {
-				swap(arr, left, right);
-			}
-			return;
-		}
+//		if(left+1 == right) {
+//			if(arr[right] < arr[left]) {
+//				swap(arr, left, right);
+//			}
+//			return;
+//		}
 		int pivot = arr[left];
 		int l = left+1;
 		int r = right;
 		while(l<=r) {
-			while(l<=r && arr[l] < pivot)
+			while(l<=r && arr[l] <= pivot)
 				l++;
-			while(r>=l && arr[r] >= pivot)
+			while(r>=l && arr[r] > pivot)
 				r--;
 			if(l < r)
 				swap(arr, l, r);
@@ -84,8 +84,40 @@ public class Sort {
 		if(l>=r)
 			return;
 		int mid = l+(r-l)/2;
+		mergeSort(arr, l, mid);
+		mergeSort(arr, mid+1, r);
+		merge(arr, l, mid, r);
 	}
 	
+	private static void merge(int[] arr, int l, int mid, int r) {
+		int[] mergeArr = new int[r-l+1];
+		int ind = 0;
+		int firstInd = l;
+		int secInd = mid+1;
+		while(firstInd <= mid && secInd <= r) {
+			if(arr[firstInd] <= arr[secInd]) {
+				mergeArr[ind++] = arr[firstInd++];
+			} else {
+				mergeArr[ind++] = arr[secInd++];
+			}
+		}
+		if(firstInd <= mid) {
+			while(firstInd <= mid){
+				mergeArr[ind++] = arr[firstInd++];
+			}
+		}
+		if(secInd <= r) {
+			while(secInd <= r) {
+				mergeArr[ind++] = arr[secInd++];
+			}
+		}
+		
+		for(int i = 0; i<r-l+1 ;i++) {
+			arr[l+i] = mergeArr[i];
+		}
+		
+	}
+
 	public static void swap(int[] arr, int l, int r) {
 		int temp = arr[l];
 		arr[l] = arr[r];
